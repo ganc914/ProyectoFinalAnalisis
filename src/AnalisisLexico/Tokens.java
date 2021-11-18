@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinalanalisis;
+package AnalisisLexico;
 
 /**
  *
@@ -53,44 +53,44 @@ public class Tokens {
     // Digitos
     public void esDigit(Character ch[]) {
         int cont = 0;
-        String cualesSon = "";
+        String diff = "";
         for (int i = 0; i < ch.length; i++) {
             if (au.isDigit(ch[i])) {
                 cont++;
-                cualesSon += ch[i].toString() + "|";
+                diff += ch[i].toString() + "|";
             }
         }
-        tipos out = new tipos(cont, "Numeros", cualesSon);
+        tipos out = new tipos(cont, "Numeros", diff);
         out.verTipos();
     }
 
 //comprobamos
     public void esToken(Character ch[]) {
         int ope = 0;
-        String cualesSon = "";
+        String diff = "";
         for (int i = 0; i < ch.length; i++) {
             for (int j = 0; j < tokens.length; j++) {
                 if (ch[i].equals(tokens[j])) {
                     ope++;
-                    cualesSon += ch[i].toString() + "|";
+                    diff += ch[i].toString() + "|";
                 }
             }
         }
-        tipos out = new tipos(ope, "Signos", cualesSon);
+        tipos out = new tipos(ope, "Signos", diff);
         out.verTipos();
     }
 
     // verificamos 
     public void esIdent(Character ch[]) {
         int Id = 0;
-        String cualesSon = "";
+        String diff = "";
         for (int i = 0; i < ch.length; i++) {
             if (au.isJavaIdentifierStart(ch[i])) {
                 Id++;
-                cualesSon += ch[i].toString() + "|";
+                diff += ch[i].toString() + "|";
             }
         }
-        tipos out = new tipos(Id, "Identificadores", cualesSon);
+        tipos out = new tipos(Id, "Identificadores", diff);
         out.verTipos();
     }
 

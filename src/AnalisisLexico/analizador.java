@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinalanalisis;
+package AnalisisLexico;
 
 /**
  *
@@ -31,7 +31,10 @@ public class analizador {
             op = teclado.nextInt();
         } while (op == 1);
         System.out.println("");
-        System.out.println("Por: Gustavo ALfredo Navarrete Cruz");
+        System.out.println("Por: Gustavo Alfredo Navarrete Cruz");
     }
-
+       
+        
 }
+
+
