@@ -7,7 +7,7 @@ package ALexico;
 
 /**
  *
- * @author Charly Ponce
+ * @author GusGus
  */
 public enum Tokens {
     Reservadas,

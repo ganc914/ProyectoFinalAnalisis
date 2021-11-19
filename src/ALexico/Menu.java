@@ -51,6 +51,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnSem.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnSem.setText("Analisis Semantico");
+        btnSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,7 +87,7 @@ public class Menu extends javax.swing.JFrame {
     private void btnLexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLexActionPerformed
         // TODO add your handling code here:
         aLexico jfrm2= new aLexico();
-        jfrm2.setSize(400, 500); 
+        //jfrm2.setSize(400, 500); 
         jfrm2.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -98,6 +103,16 @@ public class Menu extends javax.swing.JFrame {
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_btnSinActionPerformed
+
+    private void btnSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSemActionPerformed
+        // TODO add your handling code here:
+        Semantico jfrm5= new Semantico();
+        jfrm5.setSize(700, 520); 
+        jfrm5.setVisible(true);
+        this.setVisible(false);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnSemActionPerformed
 
     /**
      * @param args the command line arguments

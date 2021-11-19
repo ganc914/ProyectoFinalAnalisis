@@ -9,7 +9,7 @@ import java.io.File;
 
 /**
  *
- * @author Charly Ponce
+ * @author GusGus
  */
 public class Principal {
     public static void main(String[] args) {

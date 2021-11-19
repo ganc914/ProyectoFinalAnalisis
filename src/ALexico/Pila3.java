@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author jordy
+ * @author GusGus
  */
 public class Pila3 {
    int tamaño;

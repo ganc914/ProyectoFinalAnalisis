@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Charly Ponce
+ * @author GusGus
  */
 public class Lexico extends javax.swing.JFrame {
 

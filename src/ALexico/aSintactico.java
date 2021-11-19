@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author jordy
+ * @author GusGus
  */
 public class aSintactico {
 

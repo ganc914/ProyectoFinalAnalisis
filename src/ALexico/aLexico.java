@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author gusta
+ * @author GusGus
  */
 public class aLexico extends javax.swing.JFrame {
 
