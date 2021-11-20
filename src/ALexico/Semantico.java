@@ -201,12 +201,12 @@ public class Semantico extends javax.swing.JFrame {
         // TODO add your handling code here:
          j.setCurrentDirectory(new File("src/ALexico"));
        j.getSelectedFile();
-        j.setFileFilter(filtro);//Añado el filtro
+        j.setFileFilter(filtro);//Filtro
         j.showOpenDialog(j);
        
         int contPalabra=0;//Creo un contador para las palabras
        try{
-         //Aqui se manda la ruta del archivo
+         //Ruta del archivo
         path= j.getSelectedFile().getAbsolutePath();//Obtiene la Ruta
         String name=j.getSelectedFile().getName();//Obtiene el nombre
         String lectura="";
@@ -286,9 +286,9 @@ public class Semantico extends javax.swing.JFrame {
                 defValVar = "((\\s)*"+id+"(\\s)*=(\\s)*("+id+"|"+text+"|"+operaciones+"|"+INT+"|"+dec+")(\\s)*)",
                 condicion = id+"(\\s)*"+simbolo+"(\\s)*("+id+"|"+INT+"|"+dec+")((\\s)*([(&&)(||)](\\s)*"+id+"(\\s)*"+simbolo+"(\\s)*("+id+"|"+INT+"|"+dec+")))*",
                 var = "((\\s)*((INT)|(DINT)|(WORD))(\\b)(\\s)*("+id+"|"+defValVar+")((\\s)*(,(\\s)*("+id+"|"+defValVar+")))*(\\s)*(;))",
-                main = "((\\s)*"+id+"(\\b)(\\s)*BEGIN(\\s)*(\\{)[.\\W\\w\\s]*(END(\\s)*(\\})(\\s)*)$)",
-                main2 = "((\\s)*"+id+"(\\b)(\\s)*BEGIN(\\s)*(\\{))",
-                main3 = "((\\s)*END(\\s)*(\\})(\\s)*)",
+                main = "((\\s)*"+id+"(\\b)(\\s)*INICIO(\\s)*(\\{)[.\\W\\w\\s]*(FIN(\\s)*(\\})(\\s)*)$)",
+                main2 = "((\\s)*"+id+"(\\b)(\\s)*INICIO(\\s)*(\\{))",
+                main3 = "((\\s)*FIN(\\s)*(\\})(\\s)*)",
                 
                start2 = "((\\s)*START(\\b)(\\s)*("+id+"|"+INT+")(\\b)(\\s)*(=)*("+id+"|"+INT+")(\\b)(\\s)*(STEP)(\\b)(\\s)*"+INT+"(\\s)*[+-]?(\\s)*(\\b)(TO)(\\b)(\\s)*("+id+"|"+INT+")(\\s)*(\\{))",
                 start3 = "((\\s)*STOP(\\s)*(\\}))",
@@ -521,111 +521,111 @@ public class Semantico extends javax.swing.JFrame {
                             
                             
                             else {
-//                                if(token.contains("SEND")){
-//                                    txtATraducido.setText("PRINT");
-//                                    Error.setText("Error al declarar sentencia SEND; en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                     errores=1;
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("INT") || token.contains("DINT") || token.contains("WORD")){
-//                                    Error.setText("Error en declaracion de variables; en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("TAKE")){
-//                                    Error.setText("Error en lectura de valor TAKE  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("STOP}")){
-//                                    
-//                                    Error.setText("Cierre de Ciclo START incorrecto  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("START")){
-//                                    
-//                                    Error.setText("Inicio de Ciclo START incorrecto  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("SWHEN")){
-//                                    Error.setText("Cierre de ciclo WHEN incorrecto en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                    break;
-//                                }
-//                                if(token.contains("WHEN")){
-//                                    Error.setText("Inicio de ciclo WHEN incorrecto en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("COMPLETE")){
-//                                    
-//                                    Error.setText("Cierre de condicion IT incorrecto en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("IT")){
-//                                   
-//                                    Error.setText("Inicio de IT incorrecto; en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                else {
-//                                    Error.setText("Sintaxis Erronea en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
+                                if(token.contains("SEND")){
+                                    txtATraducido.setText("PRINT");
+                                    Error.setText("Error al declarar sentencia SEND; en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                     errores=1;
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("INT") || token.contains("DINT") || token.contains("WORD")){
+                                    Error.setText("Error en declaracion de variables; en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("TAKE")){
+                                    Error.setText("Error en lectura de valor TAKE  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("STOP}")){
+                                    
+                                    Error.setText("Cierre de Ciclo START incorrecto  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("START")){
+                                    
+                                    Error.setText("Inicio de Ciclo START incorrecto  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("SWHEN")){
+                                    Error.setText("Cierre de ciclo WHEN incorrecto en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                    break;
+                                }
+                                if(token.contains("WHEN")){
+                                    Error.setText("Inicio de ciclo WHEN incorrecto en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("COMPLETE")){
+                                    
+                                    Error.setText("Cierre de condicion IT incorrecto en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("IT")){
+                                   
+                                    Error.setText("Inicio de IT incorrecto; en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                else {
+                                    Error.setText("Sintaxis Erronea en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
                             }
                             
                             
@@ -657,91 +657,91 @@ public class Semantico extends javax.swing.JFrame {
                             if((st.hasMoreTokens() == false && (start > 0 || when > 0 || it > 0)) || (start < 0 || when < 0 || it < 0)) eB = 1;
                             
                             if((token.matches(send) || token.matches(take) || token.matches(var) || token.matches(defVal) || token.matches(main2) || token.matches(main3) || token.matches("(\\s)*(\\$)") || token.matches(start2) || token.matches(start3) || token.matches(when2) || token.matches(when3) || token.matches(it2) || token.matches(it3)) && eB == 0){
-                                Error.setText("Compilado Exitosamente xD lml");
+                                Error.setText("Compilado Exitosamente");
                                 if(token.matches(main3)) eB = 1;
                             }
                              
                             else {
-//                                if(token.contains("SEND")){
-//                                    Error.setText("Error al declarar sentencia SEND  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("INT") || token.contains("DINT") || token.contains("WORD")){
-//                                    Error.setText("Error en declaracion de variables  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("TAKE")){
-//                                    Error.setText("Error en lectura de valor TAKE en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("STOP}")){
-//                                    Error.setText("Cierre de Ciclo START incorrecto en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("START")){
-//                                    Error.setText("Inicio de Ciclo START incorrecto  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("SWHEN")){
-//                                    Error.setText("Cierre de ciclo WHEN incorrecto  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("WHEN")){
-//                                    Error.setText("Inicio de ciclo WHEN incorrecto  en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
-//                                if(token.contains("COMPLETE")){
-//                                    Error.setText("Cierre de condicion IT incorrecto; en la linea "+i+": \n"
-//                                                   + "\n"+token);
-//                                    for(int j = 1; j <i; j++){
-//                                        txt += "\n";
-//                                    }
-//                                    LineaError.setText(txt+" ¡!");
-//                                     errores=1;
-//                                    break;
-//                                }
+                                if(token.contains("SEND")){
+                                    Error.setText("Error al declarar sentencia SEND  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("INT") || token.contains("DINT") || token.contains("WORD")){
+                                    Error.setText("Error en declaracion de variables  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("TAKE")){
+                                    Error.setText("Error en lectura de valor TAKE en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("STOP}")){
+                                    Error.setText("Cierre de Ciclo START incorrecto en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("START")){
+                                    Error.setText("Inicio de Ciclo START incorrecto  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("SWHEN")){
+                                    Error.setText("Cierre de ciclo WHEN incorrecto  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("WHEN")){
+                                    Error.setText("Inicio de ciclo WHEN incorrecto  en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
+                                if(token.contains("COMPLETE")){
+                                    Error.setText("Cierre de condicion IT incorrecto; en la linea "+i+": \n"
+                                                   + "\n"+token);
+                                    for(int j = 1; j <i; j++){
+                                        txt += "\n";
+                                    }
+                                    LineaError.setText(txt+" ¡!");
+                                     errores=1;
+                                    break;
+                                }
                                 if(token.contains("IT")){
                                     Error.setText("Inicio de IT incorrecto en la linea "+i+": \n"
                                                    + "\n"+token);
